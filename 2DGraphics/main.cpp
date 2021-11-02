@@ -17,7 +17,8 @@ int main(void)
     }
 
     // Create a windowed mode window and its OpenGL context
-    window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Parallelogram", NULL, NULL);
+
+    window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "2D Graphics", NULL, NULL);
 
     if (!window)
     {
@@ -65,11 +66,37 @@ int main(void)
         glVertex2f(650, 400);
         glEnd();
 
-        // Swap front and back buffers
+        // Door
+        glBegin(GL_LINE_LOOP);
+        glVertex2f(450, 350);
+        glVertex2f(350, 350);
+        glVertex2f(350, 150);
+        glVertex2f(450, 150);
+        glEnd();
+
+        // Door Knob
+        int i;
+        int triangleAmount = 20; //# of triangles used to draw circle
+
+        //GLfloat radius = 0.8f; //radius
+        GLfloat twicePi = 2.0f * M_PI;
+
+        glBegin(GL_TRIANGLE_FAN);
+        glVertex2f(435, 270); // center of circle
+        for (i = 0; i <= triangleAmount;i++) {
+            glVertex2f(
+                435 + (5 * cos(i * twicePi / triangleAmount)),
+                270 + (5 * sin(i * twicePi / triangleAmount))
+            );
+        }
+        glEnd();
+
+      // Swap front and back buffers
         glfwSwapBuffers(window);
 
         // Poll for and process events
         glfwPollEvents();
+
     }
 
     glfwTerminate();
