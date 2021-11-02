@@ -17,6 +17,7 @@ int main(void)
     }
 
     // Create a windowed mode window and its OpenGL context
+
     window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "2D Graphics", NULL, NULL);
 
     if (!window)
@@ -89,6 +90,13 @@ int main(void)
             );
         }
         glEnd();
+
+      // Swap front and back buffers
+        glfwSwapBuffers(window);
+
+        // Poll for and process events
+        glfwPollEvents();
+
     }
 
     glfwTerminate();
