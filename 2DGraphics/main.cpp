@@ -160,7 +160,7 @@ int main(void)
         }
         glEnd();
 
-        // Crescent
+      // Crescent
         glBegin(GL_TRIANGLE_FAN);
         glVertex2f(600, 600); // center of circle
         int red = 253;
