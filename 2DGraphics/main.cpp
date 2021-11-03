@@ -20,7 +20,6 @@ int main(void)
 
     window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "2D Graphics", NULL, NULL);
 
-
     if (!window)
     {
         glfwTerminate();
@@ -40,6 +39,7 @@ int main(void)
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
     {
+
         // Bigger Rect
         glBegin(GL_LINE_STRIP);
         glVertex2f(200, 400); //top left
@@ -72,6 +72,8 @@ int main(void)
         glVertex2f(350, 350);
         glVertex2f(350, 150);
         glVertex2f(450, 150);
+        glEnd();
+
 
         // Left Window
         glBegin(GL_LINE_LOOP);
@@ -107,7 +109,6 @@ int main(void)
         glBegin(GL_LINES);
         glVertex2f(500, 312.5);
         glVertex2f(575, 312.5);
-
         glEnd();
 
         // Door Knob
@@ -119,10 +120,27 @@ int main(void)
 
         glBegin(GL_TRIANGLE_FAN);
         glVertex2f(435, 270); // center of circle
-        for (i = 0; i <= triangleAmount;i++) {
+
+        for (i = 0; i <= triangleAmount; i++) {
+
             glVertex2f(
                 435 + (5 * cos(i * twicePi / triangleAmount)),
                 270 + (5 * sin(i * twicePi / triangleAmount))
+            );
+        }
+        glEnd();
+
+        // Dome
+
+        //GLfloat radius = 0.8f; //radius
+        GLfloat Pi = M_PI;
+
+        glBegin(GL_LINE_STRIP);
+        glVertex2f(400, 450); // center of circle
+        for (i = 0; i <= triangleAmount; i++) {
+            glVertex2f(
+                400 + (150 * cos(i * Pi / triangleAmount)),
+                450 + (150 * sin(i * Pi / triangleAmount))
             );
         }
         glEnd();
