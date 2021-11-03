@@ -39,8 +39,11 @@ int main(void)
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
     {
+        glClearColor(1, 1, 1, 0);
+        glClear(GL_COLOR_BUFFER_BIT);
 
         // Bigger Rect
+        glColor3f(0, 0, 1);
         glBegin(GL_LINE_STRIP);
         glVertex2f(200, 400); //top left
         glVertex2f(200, 150); // bottom left
@@ -49,6 +52,7 @@ int main(void)
         glEnd();
 
         // Smaller Upper Rect
+        glColor3f(0, 0, 1);
         glBegin(GL_LINE_STRIP);
         glVertex2f(650, 400); // bottom right
         glVertex2f(650, 450); // top right
@@ -56,17 +60,20 @@ int main(void)
         glVertex2f(150, 400); // bottom left
         glEnd();
 
+        glColor3f(0, 0, 1);
         glBegin(GL_LINES);
         glVertex2f(150, 400);
         glVertex2f(200, 400);
         glEnd();
 
+        glColor3f(0, 0, 1);
         glBegin(GL_LINES);
         glVertex2f(600, 400);
         glVertex2f(650, 400);
         glEnd();
 
         // Door
+        glColor3f(0, 1, 0);
         glBegin(GL_LINE_LOOP);
         glVertex2f(450, 350);
         glVertex2f(350, 350);
@@ -74,8 +81,8 @@ int main(void)
         glVertex2f(450, 150);
         glEnd();
 
-
         // Left Window
+        glColor3f(0, 1, 0);
         glBegin(GL_LINE_LOOP);
         glVertex2f(300, 350);
         glVertex2f(225, 350);
@@ -83,17 +90,20 @@ int main(void)
         glVertex2f(300, 275);
         glEnd();
 
+        glColor3f(0, 0, 1);
         glBegin(GL_LINES);
         glVertex2f(262.5, 350);
         glVertex2f(262.5, 275);
         glEnd();
 
+        glColor3f(0, 0, 1);
         glBegin(GL_LINES);
         glVertex2f(225, 312.5);
         glVertex2f(300, 312.5);
         glEnd();
 
         // Right Window
+        glColor3f(0, 1, 0);
         glBegin(GL_LINE_LOOP);
         glVertex2f(575, 350);
         glVertex2f(500, 350);
@@ -101,11 +111,13 @@ int main(void)
         glVertex2f(575, 275);
         glEnd();
 
+        glColor3f(0, 0, 1);
         glBegin(GL_LINES);
         glVertex2f(537.5, 350);
         glVertex2f(537.5, 275);
         glEnd();
 
+        glColor3f(0, 0, 1);
         glBegin(GL_LINES);
         glVertex2f(500, 312.5);
         glVertex2f(575, 312.5);
@@ -118,6 +130,7 @@ int main(void)
         //GLfloat radius = 0.8f; //radius
         GLfloat twicePi = 2.0f * M_PI;
 
+        glColor3f(0, 0, 1);
         glBegin(GL_TRIANGLE_FAN);
         glVertex2f(435, 270); // center of circle
 
@@ -135,9 +148,11 @@ int main(void)
         //GLfloat radius = 0.8f; //radius
         GLfloat Pi = M_PI;
 
+        glColor3f(0, 0, 1);
         glBegin(GL_LINE_STRIP);
         glVertex2f(400, 450); // center of circle
         for (i = 0; i <= triangleAmount; i++) {
+
             glVertex2f(
                 400 + (150 * cos(i * Pi / triangleAmount)),
                 450 + (150 * sin(i * Pi / triangleAmount))
@@ -146,7 +161,6 @@ int main(void)
         glEnd();
 
         // Swap front and back buffers
-
         glfwSwapBuffers(window);
 
         // Poll for and process events
