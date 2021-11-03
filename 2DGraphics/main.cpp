@@ -74,6 +74,43 @@ int main(void)
         glVertex2f(450, 150);
         glEnd();
 
+
+        // Left Window
+        glBegin(GL_LINE_LOOP);
+        glVertex2f(300, 350);
+        glVertex2f(225, 350);
+        glVertex2f(225, 275);
+        glVertex2f(300, 275);
+        glEnd();
+
+        glBegin(GL_LINES);
+        glVertex2f(262.5, 350);
+        glVertex2f(262.5, 275);
+        glEnd();
+
+        glBegin(GL_LINES);
+        glVertex2f(225, 312.5);
+        glVertex2f(300, 312.5);
+        glEnd();
+
+        // Right Window
+        glBegin(GL_LINE_LOOP);
+        glVertex2f(575, 350);
+        glVertex2f(500, 350);
+        glVertex2f(500, 275);
+        glVertex2f(575, 275);
+        glEnd();
+
+        glBegin(GL_LINES);
+        glVertex2f(537.5, 350);
+        glVertex2f(537.5, 275);
+        glEnd();
+
+        glBegin(GL_LINES);
+        glVertex2f(500, 312.5);
+        glVertex2f(575, 312.5);
+        glEnd();
+
         // Door Knob
         int i;
         int triangleAmount = 20; //# of triangles used to draw circle
@@ -83,7 +120,9 @@ int main(void)
 
         glBegin(GL_TRIANGLE_FAN);
         glVertex2f(435, 270); // center of circle
-        for (i = 0; i <= triangleAmount;i++) {
+
+        for (i = 0; i <= triangleAmount; i++) {
+
             glVertex2f(
                 435 + (5 * cos(i * twicePi / triangleAmount)),
                 270 + (5 * sin(i * twicePi / triangleAmount))
@@ -91,12 +130,27 @@ int main(void)
         }
         glEnd();
 
-      // Swap front and back buffers
+        // Dome
+
+        //GLfloat radius = 0.8f; //radius
+        GLfloat Pi = M_PI;
+
+        glBegin(GL_LINE_STRIP);
+        glVertex2f(400, 450); // center of circle
+        for (i = 0; i <= triangleAmount; i++) {
+            glVertex2f(
+                400 + (150 * cos(i * Pi / triangleAmount)),
+                450 + (150 * sin(i * Pi / triangleAmount))
+            );
+        }
+        glEnd();
+
+        // Swap front and back buffers
+
         glfwSwapBuffers(window);
 
         // Poll for and process events
         glfwPollEvents();
-
     }
 
     glfwTerminate();
