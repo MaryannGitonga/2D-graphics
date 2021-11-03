@@ -20,6 +20,7 @@ int main(void)
 
     window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "2D Graphics", NULL, NULL);
 
+
     if (!window)
     {
         glfwTerminate();
@@ -39,7 +40,6 @@ int main(void)
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
     {
-
         // Bigger Rect
         glBegin(GL_LINE_STRIP);
         glVertex2f(200, 400); //top left
@@ -72,6 +72,42 @@ int main(void)
         glVertex2f(350, 350);
         glVertex2f(350, 150);
         glVertex2f(450, 150);
+
+        // Left Window
+        glBegin(GL_LINE_LOOP);
+        glVertex2f(300, 350);
+        glVertex2f(225, 350);
+        glVertex2f(225, 275);
+        glVertex2f(300, 275);
+        glEnd();
+
+        glBegin(GL_LINES);
+        glVertex2f(262.5, 350);
+        glVertex2f(262.5, 275);
+        glEnd();
+
+        glBegin(GL_LINES);
+        glVertex2f(225, 312.5);
+        glVertex2f(300, 312.5);
+        glEnd();
+
+        // Right Window
+        glBegin(GL_LINE_LOOP);
+        glVertex2f(575, 350);
+        glVertex2f(500, 350);
+        glVertex2f(500, 275);
+        glVertex2f(575, 275);
+        glEnd();
+
+        glBegin(GL_LINES);
+        glVertex2f(537.5, 350);
+        glVertex2f(537.5, 275);
+        glEnd();
+
+        glBegin(GL_LINES);
+        glVertex2f(500, 312.5);
+        glVertex2f(575, 312.5);
+
         glEnd();
 
         // Door Knob
@@ -91,12 +127,12 @@ int main(void)
         }
         glEnd();
 
-      // Swap front and back buffers
+        // Swap front and back buffers
+
         glfwSwapBuffers(window);
 
         // Poll for and process events
         glfwPollEvents();
-
     }
 
     glfwTerminate();
