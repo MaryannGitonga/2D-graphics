@@ -17,6 +17,7 @@ int main(void)
     }
 
     // Create a windowed mode window and its OpenGL context
+
     window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "2D Graphics", NULL, NULL);
 
     if (!window)
@@ -73,6 +74,7 @@ int main(void)
         glVertex2f(450, 150);
         glEnd();
 
+
         // Left Window
         glBegin(GL_LINE_LOOP);
         glVertex2f(300, 350);
@@ -118,7 +120,9 @@ int main(void)
 
         glBegin(GL_TRIANGLE_FAN);
         glVertex2f(435, 270); // center of circle
+
         for (i = 0; i <= triangleAmount; i++) {
+
             glVertex2f(
                 435 + (5 * cos(i * twicePi / triangleAmount)),
                 270 + (5 * sin(i * twicePi / triangleAmount))
@@ -142,6 +146,7 @@ int main(void)
         glEnd();
 
         // Swap front and back buffers
+
         glfwSwapBuffers(window);
 
         // Poll for and process events
