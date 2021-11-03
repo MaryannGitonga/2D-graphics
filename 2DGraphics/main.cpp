@@ -17,7 +17,9 @@ int main(void)
     }
 
     // Create a windowed mode window and its OpenGL context
-    window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Parallelogram", NULL, NULL);
+
+    window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "2D Graphics", NULL, NULL);
+
 
     if (!window)
     {
@@ -38,8 +40,31 @@ int main(void)
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
     {
+        // Bigger Rect
+        glBegin(GL_LINE_STRIP);
+        glVertex2f(200, 400); //top left
+        glVertex2f(200, 150); // bottom left
+        glVertex2f(600, 150); // bottom right
+        glVertex2f(600, 400); // top right
+        glEnd();
 
-    
+        // Smaller Upper Rect
+        glBegin(GL_LINE_STRIP);
+        glVertex2f(650, 400); // bottom right
+        glVertex2f(650, 450); // top right
+        glVertex2f(150, 450); // top left
+        glVertex2f(150, 400); // bottom left
+        glEnd();
+
+        glBegin(GL_LINES);
+        glVertex2f(150, 400);
+        glVertex2f(200, 400);
+        glEnd();
+
+        glBegin(GL_LINES);
+        glVertex2f(600, 400);
+        glVertex2f(650, 400);
+        glEnd();
 
         // Door
         glBegin(GL_LINE_LOOP);
@@ -47,7 +72,6 @@ int main(void)
         glVertex2f(350, 350);
         glVertex2f(350, 150);
         glVertex2f(450, 150);
-        glEnd();
 
         // Left Window
         glBegin(GL_LINE_LOOP);
@@ -83,6 +107,7 @@ int main(void)
         glBegin(GL_LINES);
         glVertex2f(500, 312.5);
         glVertex2f(575, 312.5);
+
         glEnd();
 
         // Door Knob
@@ -102,8 +127,8 @@ int main(void)
         }
         glEnd();
 
-
         // Swap front and back buffers
+
         glfwSwapBuffers(window);
 
         // Poll for and process events
