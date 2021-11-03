@@ -17,6 +17,7 @@ int main(void)
     }
 
     // Create a windowed mode window and its OpenGL context
+
     window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "2D Graphics", NULL, NULL);
 
     if (!window)
@@ -116,6 +117,7 @@ int main(void)
         glVertex2f(537.5, 275);
         glEnd();
 
+        glColor3f(0, 0, 1);
         glBegin(GL_LINES);
         glVertex2f(500, 312.5);
         glVertex2f(575, 312.5);
@@ -131,7 +133,9 @@ int main(void)
         glColor3f(0, 0, 1);
         glBegin(GL_TRIANGLE_FAN);
         glVertex2f(435, 270); // center of circle
-        for (i = 0; i <= triangleAmount;i++) {
+
+        for (i = 0; i <= triangleAmount; i++) {
+
             glVertex2f(
                 435 + (5 * cos(i * twicePi / triangleAmount)),
                 270 + (5 * sin(i * twicePi / triangleAmount))
@@ -147,7 +151,8 @@ int main(void)
         glColor3f(0, 0, 1);
         glBegin(GL_LINE_STRIP);
         glVertex2f(400, 450); // center of circle
-        for (i = 0; i <= triangleAmount;i++) {
+        for (i = 0; i <= triangleAmount; i++) {
+
             glVertex2f(
                 400 + (150 * cos(i * Pi / triangleAmount)),
                 450 + (150 * sin(i * Pi / triangleAmount))
@@ -160,9 +165,6 @@ int main(void)
 
         // Poll for and process events
         glfwPollEvents();
-
-        // Crescent
-   
     }
 
     glfwTerminate();
