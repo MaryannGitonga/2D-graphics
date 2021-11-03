@@ -160,6 +160,40 @@ int main(void)
         }
         glEnd();
 
+      // Crescent
+        glBegin(GL_TRIANGLE_FAN);
+        glVertex2f(600, 600); // center of circle
+        int red = 253;
+        int green = 184;
+        int blue = 19;
+
+        for (i = 0; i <= triangleAmount; i++) {
+            glColor3ub(red, green, blue);
+
+            glVertex2f(
+                600 + (50 * cos(i * twicePi / triangleAmount)),
+                600 + (50 * sin(i * twicePi / triangleAmount))
+            );
+
+            red -= 4;
+            green -= 2;
+            blue -= 1;
+        }
+        glEnd();
+
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_TRIANGLE_FAN);
+        glVertex2f(620, 620); // center of circle
+
+        for (i = 0; i <= triangleAmount; i++) {
+
+            glVertex2f(
+                620 + (50 * cos(i * twicePi / triangleAmount)),
+                620 + (50 * sin(i * twicePi / triangleAmount))
+            );
+        }
+        glEnd();
+
         // Swap front and back buffers
         glfwSwapBuffers(window);
 
